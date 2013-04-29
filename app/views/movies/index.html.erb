@@ -19,8 +19,8 @@
     <tr>
       <td><%= movie.title %></td>
       <td><%= movie.year %></td>
-      <td><%= movie.director_id %></td>
-  
+      <td><%= movie.director.name %></td>
+
       <td><%= link_to 'Show', movie_url(movie) %></td>
       <td><%= link_to 'Edit', edit_movie_url(movie) %></td>
       <td><%= link_to 'Destroy', movie_url(movie), method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
