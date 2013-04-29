@@ -1,0 +1,30 @@
+<h1>Directors</h1>
+
+<p><%= link_to 'Add a New Director', new_director_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @directors.each do |director| %>
+    <tr>
+      <td><%= director.name %></td>
+      <td><%= director.dob %></td>
+  
+      <td><%= link_to 'Show', director_url(director) %></td>
+      <td><%= link_to 'Edit', edit_director_url(director) %></td>
+      <td><%= link_to 'Destroy', director_url(director), method: 'delete', data: { confirm: "Do you really want to delete this director?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
