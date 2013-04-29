@@ -1,0 +1,26 @@
+<h1>Editing Movie #<%= @movie.id %></h1>
+
+
+<%= form_tag(movie_url(@movie), method: 'put') do %>
+
+  <div>
+    <%= label_tag :title %><br />
+    <%= text_field_tag :title, @movie.title %>
+  </div>
+
+  <div>
+    <%= label_tag :year %><br />
+    <%= number_field_tag :year, @movie.year %>
+  </div>
+
+  <div>
+    <%= label_tag :director_id %><br />
+    <%= number_field_tag :director_id, @movie.director_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Movie" %>
+  </div>
+
+<% end %>
