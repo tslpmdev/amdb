@@ -1,0 +1,30 @@
+<h1>Actors</h1>
+
+<p><%= link_to 'Add a New Actor', new_actor_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dob</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @actors.each do |actor| %>
+    <tr>
+      <td><%= actor.name %></td>
+      <td><%= actor.dob %></td>
+  
+      <td><%= link_to 'Show', actor_url(actor) %></td>
+      <td><%= link_to 'Edit', edit_actor_url(actor) %></td>
+      <td><%= link_to 'Destroy', actor_url(actor), method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

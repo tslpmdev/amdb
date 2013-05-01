@@ -16,7 +16,7 @@ class DirectorsController < ApplicationController
     @director = Director.new
     @director.name = params[:name]
     @director.dob = params[:dob]
-    
+
     if @director.save
             redirect_to directors_url
           else
@@ -32,7 +32,7 @@ class DirectorsController < ApplicationController
     @director = Director.find_by_id(params[:id])
     @director.name = params[:name]
     @director.dob = params[:dob]
-    
+
     if @director.save
             redirect_to directors_url
           else

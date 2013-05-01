@@ -1,0 +1,26 @@
+<h1>Editing Role #<%= @role.id %></h1>
+
+
+<%= form_tag(role_url(@role), method: 'put') do %>
+
+  <div>
+    <%= label_tag :character_name %><br />
+    <%= text_field_tag :character_name, @role.character_name %>
+  </div>
+
+  <div>
+    <%= label_tag :actor_id %><br />
+    <%= number_field_tag :actor_id, @role.actor_id %>
+  </div>
+
+  <div>
+    <%= label_tag :movie_id %><br />
+    <%= number_field_tag :movie_id, @role.movie_id %>
+  </div>
+
+  
+  <div>
+    <%= submit_tag "Update Role" %>
+  </div>
+
+<% end %>
