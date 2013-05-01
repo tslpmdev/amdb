@@ -1,9 +1,9 @@
 class Role < ActiveRecord::Base
   def actor
-    # This method should return the actor that this role belongs to
+    return Actor.find_by_id(self.actor_id)
   end
 
   def movie
-    # This method should return the movie that this role belongs to
+    return Movie.find_by_id(self.movie_id)
   end
 end
