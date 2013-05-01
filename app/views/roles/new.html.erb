@@ -11,15 +11,15 @@
 
     <div>
     <%= label_tag :actor_id %><br />
-    <%= number_field_tag :actor_id %>
+    <%= select_tag :actor_id, options_from_collection_for_select(Actor.all, :id, :name) %>
   </div>
 
     <div>
     <%= label_tag :movie_id %><br />
-    <%= number_field_tag :movie_id %>
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Create Role" %>
   </div>
