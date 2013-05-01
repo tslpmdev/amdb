@@ -1,4 +1,4 @@
 class Role < ActiveRecord::Base
-  # belongs to actor
-  # belongs to movie
+  belongs_to :actor
+  belongs_to :movie
 end
