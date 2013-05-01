@@ -16,11 +16,26 @@
 
     <div>
     <%= label_tag :director_id %><br />
-    <%= number_field_tag :director_id %>
+    <%#= number_field_tag :director_id %>
+<!--     <select name="director_id">
+      <%# Director.all.each do |director| %>
+        <option value="<%#= director.id %>"><%#= director.name %></option>
+      <%# end %>
+    </select> -->
+    <%= select_tag :director_id, options_from_collection_for_select(Director.all, :id, :name ) %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Create Movie" %>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
