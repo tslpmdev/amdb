@@ -11,4 +11,5 @@ class Movie < ActiveRecord::Base
 
   validates :director, presence: true
   validates :title, presence: true
+  validates :title, :uniqueness => { :scope => :year }
 end
