@@ -15,11 +15,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new
     @user.username = params[:username]
-    
+
     if @user.save
-            redirect_to users_url
-          else
-      render 'new'
+      redirect_to users_url, :notice => "Created successfully."
+    else
+      redirect_to new_user_url, :notice => "Username taken."
     end
   end
 
@@ -30,11 +30,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
     @user.username = params[:username]
-    
+
     if @user.save
-            redirect_to users_url
-          else
-      render 'edit'
+      redirect_to users_url, :notice => "Updated successfully."
+    else
+      redirect_to edit_user_url(@user.id), :notice => "Username taken."
     end
   end
 

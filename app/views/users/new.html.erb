@@ -1,5 +1,6 @@
 <h1>New User</h1>
 
+<p><%= notice %></p>
 
 <%= form_tag(users_url, method: 'post') do %>
 
@@ -9,7 +10,7 @@
     <%= text_field_tag :username %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Create User" %>
   </div>
