@@ -1,0 +1,30 @@
+<h1>Votes</h1>
+
+<p><%= link_to 'Add a New Vote', new_vote_url %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Movie</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @votes.each do |vote| %>
+    <tr>
+      <td><%= vote.user_id %></td>
+      <td><%= vote.movie_id %></td>
+  
+      <td><%= link_to 'Show', vote_url(vote) %></td>
+      <td><%= link_to 'Edit', edit_vote_url(vote) %></td>
+      <td><%= link_to 'Destroy', vote_url(vote), method: 'delete', data: { confirm: "Do you really want to delete this vote?" } %></td>
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
