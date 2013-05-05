@@ -8,6 +8,8 @@ class Movie < ActiveRecord::Base
   # def director
   #   return Director.find_by_id(self.director_id)
   # end
+  has_many :votes
+  has_many :users, :through => :votes
 
   validates :director, presence: true
   validates :title, presence: true
