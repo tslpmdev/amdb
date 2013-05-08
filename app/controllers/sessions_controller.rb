@@ -3,14 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     u = User.find_by_username(params[:username])
-    # Check if a user with the supplied username exists
-    # If so, sign them in and redirect back to home page.
-    #   Give them a notice "Signed In Successfully."
-    # If not, redirect them back to the sign in page with a notice of "Nice try."
+
+    if u.present?
+      session[:username] = u.username
+      redirect_to movies_url, notice: "Signed in successfully."
+    else
+      redirect_to new_session_url, notice: "Nice try."
+    end
   end
 
   def destroy
+    reset_session
+    redirect_to movies_url, notice: "Signed out successfully."
   end
 end
