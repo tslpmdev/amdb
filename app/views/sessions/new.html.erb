@@ -1,0 +1,8 @@
+<h1>Sign In</h1>
+
+<%= form_tag sessions_url do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %>
+
+  <%= submit_tag "Sign In" %>
+<% end %>
