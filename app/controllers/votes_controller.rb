@@ -1,5 +1,15 @@
 class VotesController < ApplicationController
 
+  before_filter :authorize_user, only: [:show, :edit, :update, :destroy]
+
+  def authorize_user
+    @vote = Vote.find_by_id(params[:id])
+
+    if @vote.user_id != session[:user_id]
+      redirect_to votes_url, notice: "Nice try."
+    end
+  end
+
   def index
     @votes = Vote.all
   end
@@ -16,7 +26,7 @@ class VotesController < ApplicationController
     @vote = Vote.new
     @vote.user_id = params[:user_id]
     @vote.movie_id = params[:movie_id]
-    
+
     if @vote.save
             redirect_to votes_url
           else
@@ -32,7 +42,7 @@ class VotesController < ApplicationController
     @vote = Vote.find_by_id(params[:id])
     @vote.user_id = params[:user_id]
     @vote.movie_id = params[:movie_id]
-    
+
     if @vote.save
             redirect_to votes_url
           else
