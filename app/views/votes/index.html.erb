@@ -16,9 +16,9 @@
   <tbody>
   <% @votes.each do |vote| %>
     <tr>
-      <td><%= vote.user_id %></td>
-      <td><%= vote.movie_id %></td>
-  
+      <td><%= vote.user.username %></td>
+      <td><%= vote.movie.title %></td>
+
       <td><%= link_to 'Show', vote_url(vote) %></td>
       <td><%= link_to 'Edit', edit_vote_url(vote) %></td>
       <td><%= link_to 'Destroy', vote_url(vote), method: 'delete', data: { confirm: "Do you really want to delete this vote?" } %></td>

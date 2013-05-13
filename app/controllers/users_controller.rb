@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user = User.new
     @user.username = params[:username]
     @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
       redirect_to users_url, :notice => "Created successfully."
@@ -31,6 +32,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_id(params[:id])
     @user.username = params[:username]
+    @user.password = params[:password]
+    @user.password_confirmation = params[:password_confirmation]
 
     if @user.save
       redirect_to users_url, :notice => "Updated successfully."
