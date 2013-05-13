@@ -1,6 +1,12 @@
 class VotesController < ApplicationController
-
+  before_filter :require_user
   before_filter :authorize_user, only: [:show, :edit, :update, :destroy]
+
+  def require_user
+    if session[:user_id].blank?
+      redirect_to new_session_url, notice: "Must be signed in for that."
+    end
+  end
 
   def authorize_user
     @vote = Vote.find_by_id(params[:id])

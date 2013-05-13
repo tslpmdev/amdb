@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def authorize_user
-    if @user.id != session[:user_id]
+    if @user != current_user
       redirect_to users_url, notice: "Nice try."
     end
   end
