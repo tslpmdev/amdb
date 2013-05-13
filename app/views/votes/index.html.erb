@@ -18,11 +18,15 @@
     <tr>
       <td><%= vote.user.username %></td>
       <td><%= vote.movie.title %></td>
-
-      <td><%= link_to 'Show', vote_url(vote) %></td>
-      <td><%= link_to 'Edit', edit_vote_url(vote) %></td>
-      <td><%= link_to 'Destroy', vote_url(vote), method: 'delete', data: { confirm: "Do you really want to delete this vote?" } %></td>
-
+      <% if vote.user == current_user %>
+        <td><%= link_to 'Show', vote_url(vote) %></td>
+        <td><%= link_to 'Edit', edit_vote_url(vote) %></td>
+        <td><%= link_to 'Destroy', vote_url(vote), method: 'delete', data: { confirm: "Do you really want to delete this vote?" } %></td>
+      <% else %>
+        <td></td>
+        <td></td>
+        <td></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
