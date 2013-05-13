@@ -16,7 +16,11 @@
   <tbody>
   <% @votes.each do |vote| %>
     <tr>
-      <td><%= vote.user.username %></td>
+      <td>
+        <% if vote.user.present? %>
+          <%= vote.user.username %>
+        <% end %>
+      </td>
       <td><%= vote.movie.title %></td>
       <% if vote.user == current_user %>
         <td><%= link_to 'Show', vote_url(vote) %></td>
