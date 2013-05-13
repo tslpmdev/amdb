@@ -2,8 +2,7 @@
 
 
 <%= form_tag(votes_url, method: 'post') do %>
-    <% u = User.find_by_username(session[:username]) %>
-    <input name="user_id" type="hidden" value="<%= u.id %>">
+    <%= hidden_field_tag :user_id, session[:user_id] %>
 
     <div>
     <%= label_tag :movie_id %><br />

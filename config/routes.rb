@@ -1,4 +1,5 @@
 Amdb::Application.routes.draw do
+  root to: 'sessions#new'
 
   get '/sessions/new' => 'sessions#new', as: 'new_session'
   post '/sessions' => 'sessions#create', as: 'sessions'

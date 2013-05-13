@@ -15,15 +15,15 @@
     <%= link_to "Actors", actors_url %> |
     <%= link_to "Users", users_url %> |
     <%= link_to "Votes", votes_url %> |
-    <% if session[:username].present? %>
+    <% if session[:user_id].present? %>
       <%= link_to "Sign Out", sessions_url, method: 'delete' %> |
     <% else %>
       <%= link_to "Sign In", new_session_url %> |
       <%= link_to "Sign Up", new_user_url %>
     <% end %>
   </nav>
-  <% if session[:username].present? %>
-    <p>Welcome back, <%= session[:username] %>!</p>
+  <% if session[:user_id].present? %>
+    <p>Welcome back, <%= User.find(session[:user_id]).username %>!</p>
   <% end %>
   <p><%= notice %></p>
 <%= yield %>
