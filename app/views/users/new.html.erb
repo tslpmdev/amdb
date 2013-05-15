@@ -1,5 +1,13 @@
 <h1>New User</h1>
 
+<% if @user.errors.any? %>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <p><%= notice %></p>
 
 <%= form_tag(users_url, method: 'post') do %>

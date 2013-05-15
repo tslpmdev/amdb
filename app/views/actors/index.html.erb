@@ -2,7 +2,7 @@
 
 <p><%= link_to 'Add a New Actor', new_actor_url %></p>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,7 +18,7 @@
     <tr>
       <td><%= actor.name %></td>
       <td><%= actor.dob %></td>
-  
+
       <td><%= link_to 'Show', actor_url(actor) %></td>
       <td><%= link_to 'Edit', edit_actor_url(actor) %></td>
       <td><%= link_to 'Destroy', actor_url(actor), method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>

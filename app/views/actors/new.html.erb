@@ -1,5 +1,12 @@
 <h1>New Actor</h1>
 
+<% if @actor.errors.any? %>
+  <ul>
+    <% @actor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(actors_url, method: 'post') do %>
 
@@ -14,7 +21,7 @@
     <%= text_field_tag :dob %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Create Actor" %>
   </div>

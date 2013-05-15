@@ -1,5 +1,12 @@
 <h1>Editing Director #<%= @director.id %></h1>
 
+<% if @director.errors.any? %>
+  <ul>
+    <% @director.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(director_url(@director), method: 'put') do %>
 
@@ -13,7 +20,7 @@
     <%= text_field_tag :dob, @director.dob %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Director" %>
   </div>

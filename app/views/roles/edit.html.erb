@@ -1,5 +1,12 @@
 <h1>Editing Role #<%= @role.id %></h1>
 
+<% if @role.errors.any? %>
+  <ul>
+    <% @role.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(role_url(@role), method: 'put') do %>
 
@@ -18,7 +25,7 @@
     <%= number_field_tag :movie_id, @role.movie_id %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Role" %>
   </div>

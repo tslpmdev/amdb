@@ -2,7 +2,7 @@
 
 <p><%= link_to 'Add a New Director', new_director_url %></p>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -18,7 +18,7 @@
     <tr>
       <td><%= director.name %></td>
       <td><%= director.dob %></td>
-  
+
       <td><%= link_to 'Show', director_url(director) %></td>
       <td><%= link_to 'Edit', edit_director_url(director) %></td>
       <td><%= link_to 'Destroy', director_url(director), method: 'delete', data: { confirm: "Do you really want to delete this director?" } %></td>

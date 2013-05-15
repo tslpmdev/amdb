@@ -1,5 +1,12 @@
 <h1>New Director</h1>
 
+<% if @director.errors.any? %>
+  <ul>
+    <% @director.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(directors_url, method: 'post') do %>
 
@@ -14,7 +21,7 @@
     <%= text_field_tag :dob %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Create Director" %>
   </div>

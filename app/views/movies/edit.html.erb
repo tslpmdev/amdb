@@ -1,5 +1,12 @@
 <h1>Editing Movie #<%= @movie.id %></h1>
 
+<% if @movie.errors.any? %>
+  <ul>
+    <% @movie.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(movie_url(@movie), method: 'put') do %>
 
@@ -18,7 +25,7 @@
     <%= number_field_tag :director_id, @movie.director_id %>
   </div>
 
-  
+
   <div>
     <%= submit_tag "Update Movie" %>
   </div>

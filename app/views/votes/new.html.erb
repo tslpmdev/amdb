@@ -1,5 +1,12 @@
 <h1>New Vote</h1>
 
+<% if @vote.errors.any? %>
+  <ul>
+    <% @vote.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= form_tag(votes_url, method: 'post') do %>
     <%= hidden_field_tag :user_id, session[:user_id] %>
