@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+/*= require cosmo */
+/*= require bootstrap_overrides */
+
 body {
   font-family: 'Noto Serif', serif;
 }
