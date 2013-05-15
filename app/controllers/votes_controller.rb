@@ -34,7 +34,7 @@ class VotesController < ApplicationController
     @vote.movie_id = params[:movie_id]
 
     if @vote.save
-      redirect_to votes_url
+      redirect_to movies_url
     else
       render 'new'
     end
