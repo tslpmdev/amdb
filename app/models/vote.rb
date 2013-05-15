@@ -13,20 +13,3 @@ class Vote < ActiveRecord::Base
     end
   end
 end
-
- #    @vote = Vote.new
- #    @vote.user_id = params[:user_id]
- #    @vote.movie_id = params[:movie_id]
-
- #    if @vote.save
-
-
-
-
-
-
-
-
-
-
-

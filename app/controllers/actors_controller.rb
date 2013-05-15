@@ -2,10 +2,20 @@ class ActorsController < ApplicationController
 
   def index
     @actors = Actor.all
+
+    respond_to do |format|
+      format.html { render 'index' }
+      format.json { render json: @actors }
+    end
   end
 
   def show
     @actor = Actor.find_by_id(params[:id])
+
+    respond_to do |format|
+      format.html { render 'show' }
+      format.json { render json: @actor.roles }
+    end
   end
 
   def new
@@ -16,7 +26,7 @@ class ActorsController < ApplicationController
     @actor = Actor.new
     @actor.name = params[:name]
     @actor.dob = params[:dob]
-    
+
     if @actor.save
             redirect_to actors_url
           else
@@ -32,7 +42,7 @@ class ActorsController < ApplicationController
     @actor = Actor.find_by_id(params[:id])
     @actor.name = params[:name]
     @actor.dob = params[:dob]
-    
+
     if @actor.save
             redirect_to actors_url
           else

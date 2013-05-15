@@ -2,6 +2,16 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+
+    respond_to do |format|
+      format.html do
+        render 'index'
+      end
+
+      format.json do
+        render json: @movies
+      end
+    end
   end
 
   def show
@@ -17,7 +27,7 @@ class MoviesController < ApplicationController
     @movie.title = params[:title]
     @movie.year = params[:year]
     @movie.director_id = params[:director_id]
-    
+
     if @movie.save
             redirect_to movies_url
           else
@@ -34,7 +44,7 @@ class MoviesController < ApplicationController
     @movie.title = params[:title]
     @movie.year = params[:year]
     @movie.director_id = params[:director_id]
-    
+
     if @movie.save
             redirect_to movies_url
           else
