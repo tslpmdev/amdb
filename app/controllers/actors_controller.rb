@@ -23,13 +23,11 @@ class ActorsController < ApplicationController
   end
 
   def create
-    @actor = Actor.new
-    @actor.name = params[:name]
-    @actor.dob = params[:dob]
+    @actor = Actor.new(params[:actor])
 
     if @actor.save
-            redirect_to actors_url
-          else
+      redirect_to actors_url
+    else
       render 'new'
     end
   end
@@ -40,10 +38,10 @@ class ActorsController < ApplicationController
 
   def update
     @actor = Actor.find_by_id(params[:id])
-    @actor.name = params[:name]
-    @actor.dob = params[:dob]
+    # @actor.name = params[:name]
+    # @actor.dob = params[:dob]
 
-    if @actor.save
+    if @actor.update_attributes(({ name: params[:name], dob: params[:dob] }))
       redirect_to @actor
     else
       render 'edit'

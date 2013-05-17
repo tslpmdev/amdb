@@ -1,4 +1,6 @@
 class Actor < ActiveRecord::Base
+  attr_accessible :name, :dob
+
   has_many :roles
   # def roles
   #   return Role.where(:actor_id => self.id)
