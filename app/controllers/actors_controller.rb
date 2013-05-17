@@ -38,10 +38,8 @@ class ActorsController < ApplicationController
 
   def update
     @actor = Actor.find_by_id(params[:id])
-    # @actor.name = params[:name]
-    # @actor.dob = params[:dob]
 
-    if @actor.update_attributes(({ name: params[:name], dob: params[:dob] }))
+    if @actor.update_attributes(params[:actor])
       redirect_to @actor
     else
       render 'edit'
