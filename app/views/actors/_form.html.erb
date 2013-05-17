@@ -1,0 +1,21 @@
+<% if @actor.errors.any? %>
+  <ul>
+    <% @actor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @actor do |f| %>
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :dob %><br />
+    <%= f.text_field :dob %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

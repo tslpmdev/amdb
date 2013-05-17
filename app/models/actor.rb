@@ -1,4 +1,5 @@
 class Actor < ActiveRecord::Base
+
   attr_accessible :name, :dob
 
   has_many :roles

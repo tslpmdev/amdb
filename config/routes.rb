@@ -1,4 +1,7 @@
 Amdb::Application.routes.draw do
+  resources :theaters
+
+
   root to: 'sessions#new'
 
   get '/sessions/new' => 'sessions#new', as: 'new_session'
