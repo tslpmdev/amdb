@@ -44,8 +44,8 @@ class ActorsController < ApplicationController
     @actor.dob = params[:dob]
 
     if @actor.save
-            redirect_to actors_url
-          else
+      redirect_to @actor
+    else
       render 'edit'
     end
   end

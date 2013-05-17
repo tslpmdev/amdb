@@ -1,3 +1,11 @@
+<% a = Actor.last %>
+
+<a href="http://localhost:3000/actors/<%= a.id %>">Show</a>
+<%= link_to "Show", "http://localhost:3000/actors/#{a.id}" %>
+<%= link_to "Show", actor_url(a.id) %>
+<%= link_to "Show", actor_url(a) %>
+<%= link_to "Show", a %>
+
 <h1>Actors</h1>
 
 <p><%= link_to 'Add a New Actor', new_actor_url %></p>
@@ -19,9 +27,9 @@
       <td><%= actor.name %></td>
       <td><%= actor.dob %></td>
 
-      <td><%= link_to 'Show', actor_url(actor) %></td>
+      <td><%= link_to 'Show', actor %></td>
       <td><%= link_to 'Edit', edit_actor_url(actor) %></td>
-      <td><%= link_to 'Destroy', actor_url(actor), method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>
+      <td><%= link_to 'Destroy', actor, method: 'delete', data: { confirm: "Do you really want to delete this actor?" } %></td>
 
     </tr>
   <% end %>
