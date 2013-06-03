@@ -21,7 +21,7 @@
     <tr>
       <td><%= movie.title %></td>
       <td><%= movie.year %></td>
-      <td><%= movie.director.name %></td>
+      <td><%= movie.director.try(:name) %></td>
       <td><%= movie.votes.count %></td>
       <td>
         <%= form_tag votes_url, method: 'post' do %>

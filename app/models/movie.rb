@@ -11,7 +11,6 @@ class Movie < ActiveRecord::Base
   has_many :votes
   has_many :users, :through => :votes
 
-  validates :director, presence: true
   validates :title, presence: true
   validates :title, :uniqueness => { :scope => :year }
 end

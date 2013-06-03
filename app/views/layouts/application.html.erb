@@ -29,7 +29,7 @@
             <li><%= link_to "Votes", votes_url %></li>
             <li><%= link_to "Users", users_url %></li>
             <% if signed_in? %>
-              <li><%= link_to current_user.username.capitalize, current_user %></li>
+              <li><%= link_to current_user.username, current_user %></li>
               <li><%= link_to "Sign Out", sessions_url, method: 'delete' %></li>
             <% else %>
               <li><%= link_to "Sign In", new_session_url %></li>
