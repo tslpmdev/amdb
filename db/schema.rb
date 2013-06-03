@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517213752) do
+ActiveRecord::Schema.define(:version => 20130603211106) do
 
   create_table "actors", :force => true do |t|
     t.string "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20130517213752) do
     t.string  "title"
     t.integer "year"
     t.integer "director_id"
+    t.integer "number_of_votes", :default => 0
   end
 
   create_table "roles", :force => true do |t|

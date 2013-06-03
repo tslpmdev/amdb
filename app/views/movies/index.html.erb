@@ -8,7 +8,7 @@
       <th>Title</th>
       <th>Year</th>
       <th>Director</th>
-      <th>Votes</th>
+      <th>Number of Votes</th>
       <th></th>
       <th></th>
       <th></th>
@@ -22,7 +22,7 @@
       <td><%= movie.title %></td>
       <td><%= movie.year %></td>
       <td><%= movie.director.try(:name) %></td>
-      <td><%= movie.votes.count %></td>
+      <td><%= movie.number_of_votes %></td>
       <td>
         <%= form_tag votes_url, method: 'post' do %>
           <%= hidden_field_tag :user_id, session[:user_id] %>
