@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.order("number_of_votes DESC").offset(2).limit(2)
 
     respond_to do |format|
       format.html { render 'index' }

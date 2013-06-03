@@ -10,14 +10,11 @@
 
 <%= form_tag(vote_url(@vote), method: 'put') do %>
 
-  <div>
-    <%= label_tag :user_id %><br />
-    <%= number_field_tag :user_id, @vote.user_id %>
-  </div>
+  <%= hidden_field_tag :user_id, session[:user_id] %>
 
   <div>
     <%= label_tag :movie_id %><br />
-    <%= number_field_tag :movie_id, @vote.movie_id %>
+    <%= select_tag :movie_id, options_from_collection_for_select(Movie.all, :id, :title) %>
   </div>
 
 

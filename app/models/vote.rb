@@ -7,6 +7,22 @@ class Vote < ActiveRecord::Base
   validate :user_cannot_vote_more_than_three_times
   validates :user_id, uniqueness: { scope: :movie_id }
 
+  after_create :increase_movies_number_of_votes
+  after_destroy :decrease_movies_number_of_votes
+
+  def decrease_movies_number_of_votes
+    m = self.movie
+    m.number_of_votes -= 1
+    m.save
+  end
+
+  def increase_movies_number_of_votes
+    m = self.movie
+    m.number_of_votes += 1
+    m.save
+  end
+
+
   def user_cannot_vote_more_than_three_times
     if user.votes.count >= 3
       errors.add(:user_id, "has already voted three times")
