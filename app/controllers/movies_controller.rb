@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.order("number_of_votes DESC")
+    @movies = Movie.order("number_of_votes DESC").page(params[:page]).per(4)
 
     respond_to do |format|
       format.html { render 'index' }
