@@ -88,3 +88,38 @@ role_hashes.each do |r_hash|
   r.save
 end
 puts "There are now #{Role.count} rows in the roles table."
+
+
+new_movies = ["shawshank redemption",
+"the dark knight",
+"old school",
+"princess bride",
+"apollo 13",
+"gladiator",
+"fight club",
+"dumb and dumber",
+"rocky",
+"seven",
+"super troopers",
+"jerry maguire",
+"star wars",
+"saving private ryan",
+"indiana jones",
+"the heartbreak kid",
+"the kingdom",
+"braveheart",
+"avatar",
+"titanic",
+"transformers"]
+
+new_movies.each do |new_movie_title|
+  Movie.create title: new_movie_title.titleize
+end
+
+
+
+
+
+
+
+

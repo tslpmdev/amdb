@@ -1,4 +1,6 @@
 class Movie < ActiveRecord::Base
+  attr_accessible :title
+
   has_many :roles
   # def roles
   #   return Role.where(:movie_id => self.id)
