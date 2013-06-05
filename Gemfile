@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'kaminari'
+
 gem 'starter_generators'
 
 gem 'rails', '3.2.13'
