@@ -9,6 +9,22 @@ class Vote < ActiveRecord::Base
 
   after_create :increase_movies_number_of_votes
   after_destroy :decrease_movies_number_of_votes
+  after_update :decrease_original_movie_vote_count_and_increase_new_movie_vote_count
+  after_find :remember_the_original_movie_id
+
+  def decrease_original_movie_vote_count_and_increase_new_movie_vote_count
+    o = Movie.find(@original_movie_id)
+    o.number_of_votes -= 1
+    o.save
+
+    m = self.movie
+    m.number_of_votes += 1
+    m.save
+  end
+
+  def remember_the_original_movie_id
+    @original_movie_id = self.movie.id
+  end
 
   def decrease_movies_number_of_votes
     m = self.movie
